@@ -1,5 +1,7 @@
 # RTSP Snapshot FTP
 
+**Italiano** · [English](README.en.md) · [Deutsch](README.de.md)
+
 <p align="center">
   <img src="assets/camera-icon.png" alt="Icona RTSP Snapshot FTP" width="180">
 </p>
@@ -63,9 +65,9 @@ Il file `outputs\RTSP-Snapshot-FTP-Setup.exe` è l'installer finale per gli uten
 
 ## Uso
 
-1. Inserire l'URL e premere **Test RTSP**.
+1. Inserire l'URL RTSP.
 2. Scegliere il PNG e il font. Trascinare gli overlay nell'anteprima.
 3. Inserire i parametri FTP e premere **Test FTP**.
-4. Impostare intervallo e qualità JPEG, quindi premere **Start**.
+4. Impostare intervallo e qualità JPEG, quindi salvare le impostazioni. Ai successivi avvii il servizio partirà automaticamente; **Start** resta disponibile per il riavvio manuale.
 
 Per maggiore affidabilità, configurare sulla telecamera un sottoflusso H.264 a risoluzione e bitrate moderati. FTP classico non cifra credenziali o contenuto; usarlo solo su rete fidata.
