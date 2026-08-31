@@ -30,6 +30,7 @@ A Windows application that displays a low-frame-rate RTSP stream, applies a tran
 - Automatic service startup using the saved FTP settings
 - RTSP over TCP, continuous anti-buffer reading, and automatic reconnection
 - Full-screen preview by double-clicking; double-click again or press Esc to return
+- About window with version, Freewaves copyright, and project link
 - FTP password stored locally in the settings file without encryption
 
 ## Development setup

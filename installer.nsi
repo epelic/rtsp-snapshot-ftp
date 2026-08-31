@@ -39,8 +39,8 @@ Section "Applicazione" SEC_APP
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "DisplayName" "RTSP Snapshot FTP"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "DisplayIcon" "$INSTDIR\RTSP-Snapshot-FTP.exe"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "UninstallString" '"$INSTDIR\Disinstalla.exe"'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "Publisher" "RTSP Snapshot FTP"
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "DisplayVersion" "1.1.2"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "Publisher" "Freewaves"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RTSP Snapshot FTP" "DisplayVersion" "1.1.3"
   CreateDirectory "$SMPROGRAMS\RTSP Snapshot FTP"
   CreateShortcut "$SMPROGRAMS\RTSP Snapshot FTP\RTSP Snapshot FTP.lnk" "$INSTDIR\RTSP-Snapshot-FTP.exe" "" "$INSTDIR\camera-icon.ico"
   CreateShortcut "$SMPROGRAMS\RTSP Snapshot FTP\Disinstalla.lnk" "$INSTDIR\Disinstalla.exe"

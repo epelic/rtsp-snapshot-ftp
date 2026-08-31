@@ -17,6 +17,7 @@ if (-not (Test-Path ".venv\Scripts\python.exe")) {
     --name "RTSP-Snapshot-FTP" `
     --icon "assets\camera-icon.ico" `
     --add-data "assets\camera-icon.ico;assets" `
+    --add-data "assets\camera-icon.png;assets" `
     --collect-all cv2 `
     rtsp_ftp_app.py
 

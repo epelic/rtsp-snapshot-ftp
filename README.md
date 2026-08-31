@@ -30,6 +30,7 @@ Applicazione Windows che visualizza a basso framerate un flusso RTSP, applica un
 - avvio automatico del servizio con le impostazioni FTP salvate
 - trasporto RTSP/TCP, lettura continua anti-buffer e riconnessione automatica
 - anteprima a schermo intero con doppio clic; doppio clic o Esc per tornare
+- finestra Info con versione, copyright Freewaves e collegamento al progetto
 - password salvata localmente nel file impostazioni (non cifrata)
 
 ## Avvio per sviluppo

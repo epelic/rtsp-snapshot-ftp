@@ -30,6 +30,7 @@ Eine Windows-Anwendung, die einen RTSP-Stream mit niedriger Bildrate anzeigt, ei
 - Automatischer Start des Dienstes mit den gespeicherten FTP-Einstellungen
 - RTSP über TCP, kontinuierliches Lesen zur Puffervermeidung und automatische Wiederverbindung
 - Vollbildvorschau per Doppelklick; erneuter Doppelklick oder Esc zum Zurückkehren
+- Infofenster mit Version, Freewaves-Copyright und Projektlink
 - Das FTP-Passwort wird unverschlüsselt in der lokalen Einstellungsdatei gespeichert
 
 ## Entwicklungsumgebung

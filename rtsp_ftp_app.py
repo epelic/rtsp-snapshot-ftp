@@ -8,6 +8,7 @@ import sys
 import threading
 import time
 import winreg
+import webbrowser
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from ftplib import FTP
@@ -22,6 +23,7 @@ import pystray
 
 
 APP_NAME = "RTSP Snapshot FTP"
+APP_VERSION = "1.1.3"
 STARTUP_REG_PATH = r"Software\Microsoft\Windows\CurrentVersion\Run"
 STARTUP_REG_NAME = "RTSP Snapshot FTP"
 
@@ -215,6 +217,7 @@ class App(tk.Tk):
         file_menu.add_separator()
         file_menu.add_command(label="Esci", command=self.exit_app)
         menu_bar.add_cascade(label="File", menu=file_menu)
+        menu_bar.add_command(label="Info", command=self.show_about)
         self.app_menu = menu_bar
         self.configure(menu=self.app_menu)
         style = ttk.Style(self)
@@ -262,6 +265,49 @@ class App(tk.Tk):
         self._build_ftp()
         self.log_text = tk.Text(self.log_tab, state=tk.DISABLED, wrap=tk.WORD, font=("Consolas", 9))
         self.log_text.pack(fill=tk.BOTH, expand=True)
+
+    def show_about(self):
+        about = tk.Toplevel(self)
+        about.title(f"Info su {APP_NAME}")
+        about.resizable(False, False)
+        about.transient(self)
+        about.grab_set()
+        try:
+            about.iconbitmap(str(bundled_path("assets/camera-icon.ico")))
+        except tk.TclError:
+            pass
+        body = ttk.Frame(about, padding=24)
+        body.pack(fill=tk.BOTH, expand=True)
+        try:
+            icon = Image.open(bundled_path("assets/camera-icon.png")).convert("RGBA")
+            icon.thumbnail((112, 112), Image.Resampling.LANCZOS)
+            about.icon_photo = ImageTk.PhotoImage(icon)
+            ttk.Label(body, image=about.icon_photo).pack(pady=(0, 10))
+        except Exception:
+            pass
+        ttk.Label(body, text=APP_NAME, font=("Segoe UI", 16, "bold")).pack()
+        ttk.Label(body, text=f"Versione {APP_VERSION}").pack(pady=(3, 12))
+        ttk.Label(
+            body,
+            text="Acquisizione RTSP, overlay grafici e upload FTP automatico.",
+            wraplength=390,
+            justify=tk.CENTER).pack(pady=(0, 12))
+        ttk.Label(body, text="Copyright © 2026 Freewaves").pack()
+        ttk.Label(body, text="Software distribuito gratuitamente.").pack(pady=(2, 14))
+        link = ttk.Label(
+            body,
+            text="github.com/epelic/rtsp-snapshot-ftp",
+            foreground="#0066cc",
+            cursor="hand2")
+        link.pack()
+        link.bind(
+            "<Button-1>",
+            lambda _event: webbrowser.open("https://github.com/epelic/rtsp-snapshot-ftp"))
+        ttk.Button(body, text="Chiudi", command=about.destroy).pack(fill=tk.X, pady=(18, 0))
+        about.update_idletasks()
+        x = self.winfo_rootx() + (self.winfo_width() - about.winfo_width()) // 2
+        y = self.winfo_rooty() + (self.winfo_height() - about.winfo_height()) // 2
+        about.geometry(f"+{max(0, x)}+{max(0, y)}")
 
     def toggle_preview_fullscreen(self, _event=None):
         self.preview_fullscreen = not self.preview_fullscreen
